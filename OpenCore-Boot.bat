@@ -3,7 +3,7 @@ rem Original project:
 rem https://github.com/kholia/OSX-KVM
 rem
 rem qemu-img create -f qcow2 mac_hdd_ng.img 128G
-rem -netdev user,id=net0 -device vmxnet3,netdev=net0,id=net0,mac=52:54:00:c9:18:27  # Note: Use this line for High Sierra. Replace line 34 with this
+rem -netdev user,id=net0 -device vmxnet3,netdev=net0,id=net0,mac=52:54:00:c9:18:27^  # Note: Use this line for High Sierra. Replace line 34 with this
 rem
 rem NOTE: Without TSC disabled, macOS crashes.
 
