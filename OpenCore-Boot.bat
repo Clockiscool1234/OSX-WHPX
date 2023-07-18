@@ -1,10 +1,11 @@
 @echo off
-rem Special thanks to:
-rem https://github.com/Leoyzen/KVM-Opencore
-rem https://github.com/thenickdude/KVM-Opencore/
-rem https://github.com/qemu/qemu/blob/master/docs/usb2.txt
+rem Original project:
+rem https://github.com/kholia/OSX-KVM
 rem
 rem qemu-img create -f qcow2 mac_hdd_ng.img 128G
+rem -netdev user,id=net0 -device vmxnet3,netdev=net0,id=net0,mac=52:54:00:c9:18:27  # Note: Use this line for High Sierra. Replace line 34 with this
+rem
+rem NOTE: Without TSC disabled, macOS crashes.
 
 set MY_OPTIONS="+xsave,-tsc"
 
@@ -30,7 +31,7 @@ qemu-system-x86_64^
   -device ide-hd,bus=sata.2,drive=OpenCoreBoot^
   -drive id=MacHDD,if=none,file="%REPO_PATH%/mac_hdd_ng.img",format=qcow2^
   -device ide-hd,bus=sata.4,drive=MacHDD^
-  -netdev user,id=net0 -device vmxnet3,netdev=net0,id=net0,mac=52:54:00:c9:18:27^
+  -netdev user,id=net0 -device virtio-net-pci,netdev=net0,id=net0,mac=52:54:00:c9:18:27^
   -monitor stdio^
   -device vmware-svga
   -vga virtio
