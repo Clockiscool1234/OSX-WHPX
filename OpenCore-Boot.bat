@@ -35,5 +35,5 @@ qemu-system-x86_64^
   -device ide-hd,bus=sata.4,drive=MacHDD^
   -netdev user,id=net0 -device virtio-net-pci,netdev=net0,id=net0,mac=52:54:00:c9:18:27^
   -monitor stdio^
-  -device vmware-svga
+  -device vmware-svga^
   -vga virtio
